@@ -9,7 +9,6 @@ const cors = require("cors");
 const bodyParser=require("body-parser");
 const session = require("express-session");
 
-
 //2:创建连接池 很大提高效率方法
 var pool = mysql.createPool({
   host     : process.env.MYSQL_HOST,
