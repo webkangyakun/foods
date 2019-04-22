@@ -10,6 +10,30 @@ INSERT INTO food_hf VALUES(null,'img/homef4/hf2.jpg','不仅仅是简单的味�
 INSERT INTO food_hf VALUES(null,'img/homef4/hf3.jpg','品味更多美食，享受更多健康');
 select * from  food_hf;
 
+#homed的lb
+CREATE TABLE food_lb(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img_url varchar(255)
+);
+INSERT INTO food_lb VALUES(null,'img/index/banner1.jpg');
+INSERT INTO food_lb VALUES(null,'img/index/banner2.jpg');
+INSERT INTO food_lb VALUES(null,'img/index/banner3.jpg');
+
+#home 的九宫格
+CREATE TABLE food_jgg(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+   title varchar(255),
+  img_url varchar(225)
+);
+INSERT INTO  food_jgg VALUES(null,"饮料饮品","img/grid/menu1.png");
+INSERT INTO  food_jgg VALUES(null,"汉堡快餐","img/grid/menu2.png");
+INSERT INTO  food_jgg VALUES(null,"新鲜水果","img/grid/menu3.png");
+INSERT INTO  food_jgg VALUES(null,"糖果点心","img/grid/menu4.png");
+INSERT INTO  food_jgg VALUES(null,"中式美食","img/grid/menu5.png");
+INSERT INTO  food_jgg VALUES(null,"调味食品","img/grid/menu6.png");
+
+
+
 #home的F5
 CREATE TABLE food_hfive(
   id INT PRIMARY KEY AUTO_INCREMENT,

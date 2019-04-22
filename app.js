@@ -277,24 +277,19 @@ server.get("/getProducts",(req,res)=>{
 });
 //功能三:首页轮播图
 server.get("/imglist",(req,res)=>{
-  var rows = [
-    {id:1,img_url:"http://127.0.0.1:3000/img/index/banner1.jpg"},
-    {id:2,img_url:"http://127.0.0.1:3000/img/index/banner2.jpg"},
-    {id:3,img_url:"http://127.0.0.1:3000/img/index/banner3.jpg"},
-  ];
-  res.send({code:1,data:rows});
+  var sql='select * from food_lb';
+  pool.query(sql,(err,result)=>{
+    if(err) throw err;
+    res.send(result);
+  });
 });
 //功能四:首页九宫格
 server.get("/grid",(req,res)=>{
-  var rows = [
-    {id:1,title:"饮料饮品",img_url:"http://127.0.0.1:3000/img/grid/menu1.png"},
-    {id:2,title:"汉堡快餐",img_url:"http://127.0.0.1:3000/img/grid/menu2.png"},
-    {id:3,title:"新鲜水果",img_url:"http://127.0.0.1:3000/img/grid/menu3.png"},
-    {id:4,title:"糖果点心",img_url:"http://127.0.0.1:3000/img/grid/menu4.png"},
-    {id:5,title:"中式美食",img_url:"http://127.0.0.1:3000/img/grid/menu5.png"},
-    {id:6,title:"调味食品",img_url:"http://127.0.0.1:3000/img/grid/menu6.png"},            
-  ];
-  res.send(rows);
+  var sql='select * from food_jgg';
+  pool.query(sql,(err,result)=>{
+    if(err) throw err;
+    res.send(result);
+  });
 });
 //功能五:新闻分页显示
 server.get("/news",(req,res)=>{
