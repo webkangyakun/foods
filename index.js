@@ -138,6 +138,15 @@ server.get("/addCart",(req,res)=>{
   //alter table xz_cart add count INT;
   //update xz_cart set count=1;
   //var uid=1;
+
+//拦截没有用户登录  修改
+if(!req.session.uid){
+  console.log(1)
+    res.send({code:-1,data:[],msg:'请登录'});
+     return;
+}
+
+
    var id=req.query.id;
    var sql='select img,title from food_menums where id=? ';
    pool.query(sql,[id],(err,result)=>{
@@ -210,7 +219,11 @@ server.get("/login",(req,res)=>{
       if(result.length==0){
         res.send({code:-1,msg:"用户名或密码有误"});
       }else{
+        //登陆成功获取用户id保存到session对象中  修改
+        var uid=result[0].id;
+        req.session.uid=uid;
         res.send({code:1,msg:"登录成功"});
+
       }
   })
 });
